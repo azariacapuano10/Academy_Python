@@ -1,7 +1,7 @@
 import time
 
 class Animale():
-    """Classe madre"""
+    """Parent class"""
 
     def __init__(self, nome, eta):
         self.nome=nome
@@ -36,3 +36,32 @@ class Animale():
 
     def getEta(self):
         return self.eta
+
+class Cane(Animale): 
+    """Child class"""
+
+    def __init__(self,nome,eta,razza):
+        self.razza=razza
+        Animale.__init__(self,nome,eta)
+        #super().__init__(nome,eta)
+
+    def info(self):
+        return self.razza
+
+    def parla(self):
+        return 'abbaia'
+
+    def muove(self):
+        return 'corre'
+
+    def mangia(self):
+        return 'mangia'
+
+    def beve(self):
+        return 'beve'
+
+    def getRazza(self):
+        return self.razza
+
+    def setRazza(self,razza):
+        self.razza = razza
