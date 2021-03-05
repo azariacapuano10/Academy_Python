@@ -7,7 +7,7 @@ for r in range(9):
     lista = list()
     matrice_sudoku.append(lista)
     for c in range(9):
-        num = int()
+        num = ' '
         lista.append(num)
 
 for i in range(9): #print matrice
@@ -17,7 +17,7 @@ def inserisci_numero():
     while controllo_vittoria():
         selezione_riga = int(input('Quale riga scegli:\n'))
         selezione_colonna = int(input('Quale colonna scegli:\n'))
-        if matrice_sudoku[selezione_riga][selezione_colonna]==0:
+        if matrice_sudoku[selezione_riga][selezione_colonna]== ' ':
             numero_da_inserire = int(input('Che numero vuoi inserire?\n'))
             matrice_sudoku[selezione_riga][selezione_colonna] = numero_da_inserire
             for i in range(9):
@@ -26,7 +26,7 @@ def inserisci_numero():
             print("E' occupato, effettua un'altra scelta")
             selezione_riga = int(input('Quale riga scegli:\n'))
             selezione_colonna = int(input('Quale colonna scegli:\n'))
-            if matrice_sudoku[selezione_riga,selezione_colonna]== 0:
+            if matrice_sudoku[selezione_riga,selezione_colonna]== ' ':
                 numero_da_inserire = int(input('Che numero vuoi inserire?\n'))
                 matrice_sudoku[selezione_riga][selezione_colonna]= numero_da_inserire
                 for i in range(9):
