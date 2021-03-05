@@ -1,8 +1,8 @@
-controllo = list() #creazione controllo
-for i in range(1,10):
-    controllo.append(i)
+import random
+import copy
 
-matrice_sudoku = [] #creazione matrice
+# Creazione matrice vuota
+matrice_sudoku = [] 
 for r in range(9):
     lista = list()
     matrice_sudoku.append(lista)
@@ -10,10 +10,39 @@ for r in range(9):
         num = ' '
         lista.append(num)
 
-for i in range(9): #print matrice
-    print(matrice_sudoku[i])
+# Creazione suduku random partendo da base
+matrice_sudoku=[[1,2,3,4,5,6,7,8,9],[4,5,6,7,8,9,1,2,3],[7,8,9,1,2,3,4,5,6],[2,3,1,6,4,5,8,9,7],[5,6,4,9,7,8,2,3,1],[8,9,7,3,1,2,5,6,4],[3,1,2,5,6,4,9,7,8],[6,4,5,8,9,7,3,1,2],[9,7,8,2,3,1,6,4,5]]
+
+for i in range(40):
+    num1=random.randint(1,9)
+    num2=random.randint(1,9)
+
+    for i in range(0,9):
+        for e in range(0,9):
+            if matrice_sudoku[i][e]==num1:
+                matrice_sudoku[i][e]=num2
+            elif matrice_sudoku[i][e]==num2:
+                matrice_sudoku[i][e]=num1
+
+# Creazione caselle vuote per giocare 
+sudokuCopy = copy.deepcopy(matrice_sudoku)
+
+cont=0
+while cont<3:
+    for i in range(0,9):
+        for e in range(0,9):
+            tolgo=random.randint(0,1)
+            if tolgo==0 and cont<3 and matrice_sudoku[i][e]!=" ":
+                matrice_sudoku[i][e]=" "
+                cont+=1
+
+# Creazione lista per controllo
+controllo = list() 
+for i in range(1,10):
+    controllo.append(i)
 
 def inserisci_numero():
+    '''Game flow'''
     while controllo_vittoria():
         selezione_riga = int(input('Quale riga scegli:\n'))
         selezione_colonna = int(input('Quale colonna scegli:\n'))
@@ -33,6 +62,7 @@ def inserisci_numero():
                     print(matrice_sudoku[i])
 
 def controllo_vittoria():
+    '''Check if the conditions for victory are met'''
     cont_quadranti = 0
     cont_righe = 0
     cont_colonne = 0
