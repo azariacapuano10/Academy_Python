@@ -14,7 +14,7 @@ for i in range(9): #print matrice
     print(matrice_sudoku[i])
 
 def inserisci_numero():
-    while controllo_vittoria():
+    
         selezione_riga = int(input('Quale riga scegli:\n'))
         selezione_colonna = int(input('Quale colonna scegli:\n'))
         if matrice_sudoku[selezione_riga][selezione_colonna]==0:
