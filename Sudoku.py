@@ -28,11 +28,11 @@ for i in range(40):
 sudokuCopy = copy.deepcopy(matrice_sudoku)
 
 cont=0
-while cont<3:
+while cont<35:
     for i in range(0,9):
         for e in range(0,9):
             tolgo=random.randint(0,1)
-            if tolgo==0 and cont<3 and matrice_sudoku[i][e]!=" ":
+            if tolgo==0 and cont<35 and matrice_sudoku[i][e]!=" ":
                 matrice_sudoku[i][e]=" "
                 cont+=1
 
@@ -43,6 +43,8 @@ for i in range(1,10):
 
 def inserisci_numero():
     '''Game flow'''
+    for i in range(9):
+        print(matrice_sudoku[i])
     while controllo_vittoria():
         selezione_riga = int(input('Quale riga scegli:\n'))
         selezione_colonna = int(input('Quale colonna scegli:\n'))
