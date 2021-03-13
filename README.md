@@ -1,7 +1,9 @@
 # Academy_Python
 
-*First steps* = 
+*First steps* = Collection of simple exercises concerning funcitions and operations on collections of data
 
-*OOPS* =
+*OOPS* = Collection of simple classes
 
-*Tris.py* =
+*Tris.py* = Tic-tac-toe game for two players
+
+*Sudoku.py* = Sudoku game
